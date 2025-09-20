@@ -25,6 +25,24 @@ namespace DesignPatterns
             Console.WriteLine("3. Testando Singleton Logger:");
             TestLoggerSingleton();
 
+            Console.WriteLine("\n" + new string('=', 50));
+
+            // Teste do padrão Factory simples (com switch)
+            Console.WriteLine("4. Testando Factory:");
+            TestFactory();
+
+            Console.WriteLine("\n" + new string('=', 50));
+
+            // Teste do padrão Factory com herança
+            Console.WriteLine("5. Testando Factory com herança:");
+            InheritFactory();
+
+            Console.WriteLine("\n" + new string('=', 50));
+
+            // Teste do padrão Factory com conexãos de banco de dados
+            Console.WriteLine("6. Testando Factory de Conexões de Banco de Dados:");
+            TestFactoryConexao();
+
             Console.WriteLine("\nPressione qualquer tecla para sair...");
             Console.ReadKey();
         }
@@ -66,6 +84,35 @@ namespace DesignPatterns
 
             // Exibir logs
             logger.ShowLogs();
+        }
+
+        static void TestFactory()
+        {
+            Veiculo v1 = VeiculoFactory.CriarVeiculo("carro");
+            Veiculo v2 = VeiculoFactory.CriarVeiculo("moto");
+
+            v1.ExibirInfo();
+            v2.ExibirInfo();
+        }
+
+        static void InheritFactory()
+        {
+            TransporteFactory fabrica1 = new CaminhaoFactory();
+            ITransporte t1 = fabrica1.CriarTransporte();
+            t1.Entregar();
+
+            TransporteFactory fabrica2 = new NavioFactory();
+            ITransporte t2 = fabrica2.CriarTransporte();
+            t2.Entregar();
+        }
+
+        static void TestFactoryConexao()
+        {
+            var conexao1 = ConexaoFactory.CriarConexao("sqlserver");
+            conexao1.Conectar();
+
+            var conexao2 = ConexaoFactory.CriarConexao("postgresql");
+            conexao2.Conectar();
         }
     }
 }
