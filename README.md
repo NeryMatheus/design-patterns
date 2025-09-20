@@ -18,27 +18,34 @@ dotnet run --project CSharpProject.csproj
 
 ```
 design_patterns/
-├── Program.cs                           # Arquivo principal com os testes
+├── Program.cs                                    # Arquivo principal com os testes
 ├── DesignPatterns/
 │   ├── Creational/
-│   │   ├── Singleton.cs                 # Padrão Singleton
-│   │   └── Factory.cs                   # Padrão Factory
-│   ├── Behavioral/
-│   │   └── Observer.cs                  # Padrão Observer
-│   └── Structural/                      # (Para futuros padrões)
-└── CSharpProject.csproj                # Configuração do projeto
+│   │   ├── Singleton/                           # Padrão Singleton
+│   │   │   ├── Singleton.cs                     # Implementação básica
+│   │   │   ├── SingletonLazy.cs                # Implementação Lazy
+│   │   │   └── SingletonLogger.cs              # Exemplo prático (Logger)
+│   │   └── Factory/                             # Padrão Factory
+│   │       ├── Factory.cs                       # Factory básico (Veículos)
+│   │       ├── FactoryConnection.cs             # Factory para conexões BD
+│   │       └── FactoryInheritance.cs           # Factory com herança
+│   ├── Behavioral/                              # (Para futuros padrões)
+│   └── Structural/                              # (Para futuros padrões)
+└── CSharpProject.csproj                        # Configuração do projeto
 ```
 
 ## 🛠️ Padrões Implementados
 
 ### ✅ Criacionais (Creational)
 - **Singleton** - Garante uma única instância da classe
+  - Implementação básica, Lazy e Logger prático
 - **Factory** - Cria objetos sem especificar suas classes concretas
-
-### ✅ Comportamentais (Behavioral)  
-- **Observer** - Define dependência um-para-muitos entre objetos
+  - Factory básico para criação de veículos
+  - Factory para conexões de banco de dados
+  - Factory Method com herança para transportes
 
 ### 📋 Para Implementar
+- **Observer** - Define dependência um-para-muitos entre objetos
 - Strategy, Command, State (Behavioral)
 - Adapter, Decorator, Facade (Structural)
 - Builder, Abstract Factory (Creational)
